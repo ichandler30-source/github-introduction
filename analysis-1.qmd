@@ -1,7 +1,28 @@
 ---
-title: "Analysis 1"
+title: "A Beautiful Graphic"
 Author: Isabella Chandler
+execute:
+  echo: false
 ---
 
 Isabella Chandler is a data maestro!
 
+```{r}
+#| message: false
+library(tidyverse)
+```
+
+```{r}
+ggplot(mpg, aes(x = displ, y = hwy, color = class)) +
+  geom_point(size = 3, alpha = 0.8) +
+  scale_color_brewer(palette = "Set2") +
+  labs(
+    title = "Bigger Engines, Shorter Highway Range",
+    subtitle = "Fuel economy across vehicle classes",
+    x = "Engine displacement (liters)",
+    y = "Highway miles per gallon",
+    color = "Vehicle class"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(legend.position = "bottom")
+```
